@@ -85,7 +85,7 @@ export function Navbar() {
         
         <div className="ml-auto flex items-center gap-1.5">
           <a
-            href="/Sangeeth_CV.pdf"
+            href="https://pdflink.to/sangeeth-cv/"
             target="_blank"
             rel="noreferrer"
             className="hidden items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium hover:bg-secondary sm:inline-flex"
@@ -134,7 +134,7 @@ export function Navbar() {
                 ))}
                 <div className="my-1 h-px bg-border/50" />
                 <a
-                  href="/Sangeeth_CV.pdf"
+                  href="https://pdflink.to/sangeeth-cv/"
                   target="_blank"
             rel="noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
