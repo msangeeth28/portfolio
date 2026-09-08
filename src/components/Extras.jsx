@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Layers, Terminal, Monitor, Database, Code2, Target, FileDown, Github } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
@@ -8,6 +9,15 @@ Purpose:
 Displays additional information like GitHub stats, LeetCode profile link, future goals, and a resume download button.
 */
 export function Extras() {
+  const [ghStats, setGhStats] = useState(null);
+
+  useEffect(() => {
+    fetch("https://api.github.com/users/msangeeth28")
+      .then(res => res.json())
+      .then(data => setGhStats(data))
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <section className="relative px-6 py-24">
       <div className="mx-auto max-w-6xl">
@@ -16,19 +26,39 @@ export function Extras() {
         <div className="grid gap-6 lg:grid-cols-3">
           {/* GitHub Stats */}
           <Reveal>
-            <div className="glass h-full rounded-2xl p-6">
-              <div className="flex items-center gap-3">
-                <Github className="h-5 w-5" style={{ color: "var(--brand)" }} />
-                <h3 className="font-semibold">GitHub Stats</h3>
-              </div>
-              <div className="mt-6 flex justify-center py-2">
-                <a href="https://github.com/msangeeth28" target="_blank" rel="noreferrer" className="w-full">
-                  <img
-                    src="https://github-readme-stats.vercel.app/api?username=msangeeth28&theme=dark&hide_border=true&bg_color=transparent&show_icons=true"
-                    alt="GitHub Stats"
-                    className="w-full rounded-xl transition-transform duration-300 hover:scale-105 sm:scale-110"
-                  />
+            <div className="glass h-full rounded-2xl p-6 flex flex-col">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Github className="h-5 w-5" style={{ color: "var(--brand)" }} />
+                  <h3 className="font-semibold">GitHub</h3>
+                </div>
+                <a href="https://github.com/msangeeth28" target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-white transition-colors">
+                  @msangeeth28
                 </a>
+              </div>
+              
+              <div className="mt-6 flex flex-1 flex-col justify-center gap-4">
+                {ghStats ? (
+                  <>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="flex flex-col items-center justify-center rounded-xl bg-secondary/30 p-4 border border-white/5">
+                        <span className="text-3xl font-black gradient-text">{ghStats.public_repos}</span>
+                        <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-widest font-semibold">Repositories</span>
+                      </div>
+                      <div className="flex flex-col items-center justify-center rounded-xl bg-secondary/30 p-4 border border-white/5">
+                        <span className="text-3xl font-black gradient-text">{ghStats.followers}</span>
+                        <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-widest font-semibold">Followers</span>
+                      </div>
+                    </div>
+                    <a href="https://github.com/msangeeth28" target="_blank" rel="noreferrer" className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl border border-white/5 bg-secondary/40 py-3 text-sm font-semibold hover:bg-secondary transition-colors">
+                      View Profile
+                    </a>
+                  </>
+                ) : (
+                  <div className="flex items-center justify-center py-10">
+                    <div className="h-6 w-6 animate-spin-slow rounded-full border-2 border-t-transparent border-muted-foreground" />
+                  </div>
+                )}
               </div>
             </div>
           </Reveal>
