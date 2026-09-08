@@ -19,6 +19,6 @@ export const personalInfo = {
     { label: "CGPA", to: 8.69, suffix: "/10", decimals: 2, iconName: "GraduationCap" },
     { label: "Projects", to: 3, suffix: "", decimals: 0, iconName: "Rocket" },
     { label: "Internship", to: 1, suffix: "", decimals: 0, iconName: "Trophy" },
-    { label: "Certifications", to: 3, suffix: "", decimals: 0, iconName: "Award" },
+    { label: "Certifications", to: 4, suffix: "", decimals: 0, iconName: "Award" },
   ],
 };
