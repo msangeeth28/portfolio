@@ -32,7 +32,7 @@ export function Experience() {
                       <img 
                         src={exp.image} 
                         alt={exp.imageAlt || exp.role} 
-                        className="w-full aspect-[1.44] object-cover transition-transform duration-700 hover:scale-105" 
+                        className="w-full aspect-[1.44] object-cover" 
                       />
                     </div>
                   )}

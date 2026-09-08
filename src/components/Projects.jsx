@@ -44,17 +44,13 @@ function ProjectCard({ project, index }) {
           
           {/* Mockup area */}
           <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-black">
-            <motion.div
-              className="absolute inset-0"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.6 }}
-            >
+            <div className="absolute inset-0">
               <img 
                 src={project.image} 
                 alt={project.title} 
                 className="h-full w-full object-cover opacity-80 transition-opacity hover:opacity-100" 
               />
-            </motion.div>
+            </div>
           </div>
 
           <div className="relative mt-6">
