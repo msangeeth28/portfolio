@@ -114,7 +114,8 @@ export function Extras() {
                 href="/Sangeeth_CV.pdf"
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold text-white shadow-[var(--shadow-glow)]"
                 style={{ background: "var(--gradient-brand)" }}
-                download
+                target="_blank"
+                rel="noreferrer"
               >
                 <FileDown className="h-4 w-4" /> Download Resume
               </a>

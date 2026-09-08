@@ -10,7 +10,7 @@ const sections = [
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "education", label: "Education" },
-  { id: "certs", label: "Certs" },
+  { id: "certs", label: "Certifications" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -86,7 +86,8 @@ export function Navbar() {
         <div className="ml-auto flex items-center gap-1.5">
           <a
             href="/Sangeeth_CV.pdf"
-            download
+            target="_blank"
+            rel="noreferrer"
             className="hidden items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium hover:bg-secondary sm:inline-flex"
           >
             <Download className="h-3.5 w-3.5" /> Resume
@@ -134,7 +135,8 @@ export function Navbar() {
                 <div className="my-1 h-px bg-border/50" />
                 <a
                   href="/Sangeeth_CV.pdf"
-                  download
+                  target="_blank"
+            rel="noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground"
                 >
